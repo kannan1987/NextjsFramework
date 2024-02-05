@@ -18,16 +18,40 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
+@layer components{
+  .title{@apply text-6xl text-blue-600 font-bold}
+  .subtitle{@apply text-4xl text-green-600 font-semibold }
+}
+
+@layer base{
+  h1{@apply text-9xl text-yellow-400 font-semibold}
+}
+
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
+input:focus-within ~ label,
+input:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-6;
+}
+
+input:focus-within ~ label {
+  @apply text-blue-500;
+}
+
+.outline input:focus-within ~ label,
+.outline input:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-4 z-0 ml-3 px-1 py-0;
+}
+
+
